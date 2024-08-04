@@ -1,0 +1,22 @@
+version: "3"
+services:
+  db:
+    image: postgres:16.3-alpine
+    env_file: ./.env.docker.local
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+  pgweb:
+    image: sosedoff/pgweb
+    env_file: ./.env.docker.local
+    ports:
+      - "8081:8081"
+    links:
+      - db:postgres
+    depends_on:
+      - db
+
+volumes:
+  db_data:
