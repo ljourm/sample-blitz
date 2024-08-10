@@ -18,6 +18,6 @@ export default tseslint.config(
   ...tseslint.configs.recommended,
   ...nextConfig,
   eslintConfigPrettier,
-  ...importConfig,
+  // ...importConfig,
   ...nextIgnores
 );
