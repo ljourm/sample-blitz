@@ -5,6 +5,7 @@ import tseslint from "typescript-eslint";
 import eslintConfigPrettier from "eslint-config-prettier";
 
 import { nextConfig, nextIgnores } from "../shared/nextjs.js";
+import { importConfig } from "../shared/import.js";
 
 // FlatConfigに対応していないpackageあり
 // - eslint-plugin-react-hooks
@@ -17,5 +18,6 @@ export default tseslint.config(
   ...tseslint.configs.recommended,
   ...nextConfig,
   eslintConfigPrettier,
+  ...importConfig,
   ...nextIgnores
 );
