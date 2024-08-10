@@ -1,14 +1,14 @@
 "use client"
-import {AuthenticationError, PromiseReturnType} from "blitz"
+import { AuthenticationError, PromiseReturnType } from "blitz"
 import Link from "next/link"
-import {LabeledTextField} from "src/app/components/LabeledTextField"
-import {Form, FORM_ERROR} from "src/app/components/Form"
+import { LabeledTextField } from "src/app/components/LabeledTextField"
+import { Form, FORM_ERROR } from "src/app/components/Form"
 import login from "../mutations/login"
-import {Login} from "../validations"
-import {useMutation} from "@blitzjs/rpc"
-import {useSearchParams} from "next/navigation"
-import {useRouter} from "next/navigation"
-import type {Route} from "next"
+import { Login } from "../validations"
+import { useMutation } from "@blitzjs/rpc"
+import { useSearchParams } from "next/navigation"
+import { useRouter } from "next/navigation"
+import type { Route } from "next"
 
 type LoginFormProps = {
   onSuccess?: (user: PromiseReturnType<typeof login>) => void
@@ -25,7 +25,7 @@ export const LoginForm = (props: LoginFormProps) => {
       <Form
         submitText="Login"
         schema={Login}
-        initialValues={{email: "", password: ""}}
+        initialValues={{ email: "", password: "" }}
         onSubmit={async (values) => {
           try {
             await loginMutation(values)
@@ -37,7 +37,7 @@ export const LoginForm = (props: LoginFormProps) => {
             }
           } catch (error: any) {
             if (error instanceof AuthenticationError) {
-              return {[FORM_ERROR]: "Sorry, those credentials are invalid"}
+              return { [FORM_ERROR]: "Sorry, those credentials are invalid" }
             } else {
               return {
                 [FORM_ERROR]:
@@ -54,7 +54,7 @@ export const LoginForm = (props: LoginFormProps) => {
         </div>
       </Form>
 
-      <div style={{marginTop: "1rem"}}>
+      <div style={{ marginTop: "1rem" }}>
         Or <Link href="/signup">Sign Up</Link>
       </div>
     </>

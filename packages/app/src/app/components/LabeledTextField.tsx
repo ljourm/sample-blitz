@@ -55,7 +55,7 @@ export const LabeledTextField = forwardRef<HTMLInputElement, LabeledTextFieldPro
         `}</style>
       </div>
     )
-  }
+  },
 )
 
 LabeledTextField.displayName = "LabeledTextField"

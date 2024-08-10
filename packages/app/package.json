@@ -15,15 +15,6 @@
   "prisma": {
     "schema": "db/schema.prisma"
   },
-  "prettier": {
-    "semi": false,
-    "printWidth": 100
-  },
-  "lint-staged": {
-    "*.{js,ts,tsx}": [
-      "eslint --fix"
-    ]
-  },
   "dependencies": {
     "@blitzjs/auth": "2.0.10",
     "@blitzjs/next": "2.0.10",

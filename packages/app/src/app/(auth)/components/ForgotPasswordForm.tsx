@@ -1,12 +1,12 @@
 "use client"
-import {LabeledTextField} from "src/app/components/LabeledTextField"
-import {Form, FORM_ERROR} from "src/app/components/Form"
-import {ForgotPassword} from "../validations"
+import { LabeledTextField } from "src/app/components/LabeledTextField"
+import { Form, FORM_ERROR } from "src/app/components/Form"
+import { ForgotPassword } from "../validations"
 import forgotPassword from "../mutations/forgotPassword"
-import {useMutation} from "@blitzjs/rpc"
+import { useMutation } from "@blitzjs/rpc"
 
 export function ForgotPasswordForm() {
-  const [forgotPasswordMutation, {isSuccess}] = useMutation(forgotPassword)
+  const [forgotPasswordMutation, { isSuccess }] = useMutation(forgotPassword)
 
   return (
     <>
@@ -24,7 +24,7 @@ export function ForgotPasswordForm() {
           <Form
             submitText="Send Reset Password Instructions"
             schema={ForgotPassword}
-            initialValues={{email: ""}}
+            initialValues={{ email: "" }}
             onSubmit={async (values) => {
               try {
                 await forgotPasswordMutation(values)
