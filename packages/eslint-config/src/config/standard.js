@@ -8,5 +8,5 @@ export default tseslint.config(
   // StandardConfig
   eslint.configs.recommended,
   ...tseslint.configs.recommended,
-  eslintConfigPrettier
+  eslintConfigPrettier,
 );

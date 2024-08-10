@@ -1,11 +1,11 @@
-import Link from "next/link"
-import { invoke } from "./blitz-server"
-import { LogoutButton } from "./(auth)/components/LogoutButton"
-import styles from "./styles/Home.module.css"
-import getCurrentUser from "./users/queries/getCurrentUser"
+import Link from "next/link";
+import { invoke } from "./blitz-server";
+import { LogoutButton } from "./(auth)/components/LogoutButton";
+import styles from "./styles/Home.module.css";
+import getCurrentUser from "./users/queries/getCurrentUser";
 
 export default async function Home() {
-  const currentUser = await invoke(getCurrentUser, null)
+  const currentUser = await invoke(getCurrentUser, null);
   return (
     <>
       <div className={styles.globe} />
@@ -134,12 +134,7 @@ export default async function Home() {
                   Blitz Twitter
                   <span className={styles.arrowIcon} />
                 </a>
-                <a
-                  href="https://discord.blitzjs.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.card}
-                >
+                <a href="https://discord.blitzjs.com" target="_blank" rel="noopener noreferrer" className={styles.card}>
                   Discord Community
                   <span className={styles.arrowIcon} />
                 </a>
@@ -161,5 +156,5 @@ export default async function Home() {
         </footer>
       </div>
     </>
-  )
+  );
 }

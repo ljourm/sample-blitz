@@ -37,7 +37,7 @@ export const nextConfig = tseslint.config(
       // エラーとなったため無効化で対応
       "@next/next/no-duplicate-head": "off",
     },
-  }
+  },
 );
 
 export const nextIgnores = tseslint.config({

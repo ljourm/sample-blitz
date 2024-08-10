@@ -1,12 +1,12 @@
-"use client"
-import { LabeledTextField } from "src/app/components/LabeledTextField"
-import { Form, FORM_ERROR } from "src/app/components/Form"
-import { ForgotPassword } from "../validations"
-import forgotPassword from "../mutations/forgotPassword"
-import { useMutation } from "@blitzjs/rpc"
+"use client";
+import { LabeledTextField } from "src/app/components/LabeledTextField";
+import { Form, FORM_ERROR } from "src/app/components/Form";
+import { ForgotPassword } from "../validations";
+import forgotPassword from "../mutations/forgotPassword";
+import { useMutation } from "@blitzjs/rpc";
 
 export function ForgotPasswordForm() {
-  const [forgotPasswordMutation, { isSuccess }] = useMutation(forgotPassword)
+  const [forgotPasswordMutation, { isSuccess }] = useMutation(forgotPassword);
 
   return (
     <>
@@ -15,10 +15,7 @@ export function ForgotPasswordForm() {
         {isSuccess ? (
           <div>
             <h2>Request Submitted</h2>
-            <p>
-              If your email is in our system, you will receive instructions to reset your password
-              shortly.
-            </p>
+            <p>If your email is in our system, you will receive instructions to reset your password shortly.</p>
           </div>
         ) : (
           <Form
@@ -27,11 +24,11 @@ export function ForgotPasswordForm() {
             initialValues={{ email: "" }}
             onSubmit={async (values) => {
               try {
-                await forgotPasswordMutation(values)
+                await forgotPasswordMutation(values);
               } catch (error: any) {
                 return {
                   [FORM_ERROR]: "Sorry, we had an unexpected error. Please try again.",
-                }
+                };
               }
             }}
           >
@@ -40,5 +37,5 @@ export function ForgotPasswordForm() {
         )}
       </>
     </>
-  )
+  );
 }

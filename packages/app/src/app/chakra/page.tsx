@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import { Link } from "@chakra-ui/next-js"
-import { Button } from "@chakra-ui/react"
+import { Link } from "@chakra-ui/next-js";
+import { Button } from "@chakra-ui/react";
 
 export default function Page() {
   return (
@@ -11,5 +11,5 @@ export default function Page() {
       </Link>
       <Button>Button</Button>
     </>
-  )
+  );
 }

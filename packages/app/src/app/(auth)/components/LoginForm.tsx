@@ -1,23 +1,23 @@
-"use client"
-import { AuthenticationError, PromiseReturnType } from "blitz"
-import Link from "next/link"
-import { LabeledTextField } from "src/app/components/LabeledTextField"
-import { Form, FORM_ERROR } from "src/app/components/Form"
-import login from "../mutations/login"
-import { Login } from "../validations"
-import { useMutation } from "@blitzjs/rpc"
-import { useSearchParams } from "next/navigation"
-import { useRouter } from "next/navigation"
-import type { Route } from "next"
+"use client";
+import { AuthenticationError, PromiseReturnType } from "blitz";
+import Link from "next/link";
+import { LabeledTextField } from "src/app/components/LabeledTextField";
+import { Form, FORM_ERROR } from "src/app/components/Form";
+import login from "../mutations/login";
+import { Login } from "../validations";
+import { useMutation } from "@blitzjs/rpc";
+import { useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
+import type { Route } from "next";
 
 type LoginFormProps = {
-  onSuccess?: (user: PromiseReturnType<typeof login>) => void
-}
+  onSuccess?: (user: PromiseReturnType<typeof login>) => void;
+};
 
 export const LoginForm = (props: LoginFormProps) => {
-  const [loginMutation] = useMutation(login)
-  const router = useRouter()
-  const next = useSearchParams()?.get("next")
+  const [loginMutation] = useMutation(login);
+  const router = useRouter();
+  const next = useSearchParams()?.get("next");
   return (
     <>
       <h1>Login</h1>
@@ -28,21 +28,20 @@ export const LoginForm = (props: LoginFormProps) => {
         initialValues={{ email: "", password: "" }}
         onSubmit={async (values) => {
           try {
-            await loginMutation(values)
-            router.refresh()
+            await loginMutation(values);
+            router.refresh();
             if (next) {
-              router.push(next as Route)
+              router.push(next as Route);
             } else {
-              router.push("/")
+              router.push("/");
             }
           } catch (error: any) {
             if (error instanceof AuthenticationError) {
-              return { [FORM_ERROR]: "Sorry, those credentials are invalid" }
+              return { [FORM_ERROR]: "Sorry, those credentials are invalid" };
             } else {
               return {
-                [FORM_ERROR]:
-                  "Sorry, we had an unexpected error. Please try again. - " + error.toString(),
-              }
+                [FORM_ERROR]: "Sorry, we had an unexpected error. Please try again. - " + error.toString(),
+              };
             }
           }
         }}
@@ -58,5 +57,5 @@ export const LoginForm = (props: LoginFormProps) => {
         Or <Link href="/signup">Sign Up</Link>
       </div>
     </>
-  )
-}
+  );
+};

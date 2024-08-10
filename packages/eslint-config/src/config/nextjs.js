@@ -19,5 +19,5 @@ export default tseslint.config(
   ...nextConfig,
   eslintConfigPrettier,
   // ...importConfig,
-  ...nextIgnores
+  ...nextIgnores,
 );
