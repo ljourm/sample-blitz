@@ -87,7 +87,7 @@ export default async function Home() {
                     <span>4</span>
                     <pre>
                       <code>
-                        Go to {/* @ts-ignore: TODO remove after scaffolding */}
+                        Go to {/* @ts-expect-error: TODO remove after scaffolding */}
                         <Link href="/projects" className={styles.textLink}>
                           /projects
                         </Link>

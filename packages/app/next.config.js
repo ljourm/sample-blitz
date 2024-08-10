@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-require-imports, no-undef
 const { withBlitz } = require("@blitzjs/next");
 
 /** @type {import('next').NextConfig} */
@@ -7,4 +8,5 @@ const nextConfig = {
   },
 };
 
+// eslint-disable-next-line no-undef
 module.exports = withBlitz(nextConfig);

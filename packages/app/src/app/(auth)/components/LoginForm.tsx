@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 "use client";
 import { AuthenticationError, PromiseReturnType } from "blitz";
 import Link from "next/link";

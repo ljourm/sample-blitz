@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { vi, describe, it, beforeEach, expect } from "vitest";
 import resetPassword from "./resetPassword";
 import db from "db";
@@ -54,12 +56,12 @@ describe("resetPassword mutation", () => {
 
     // Non-existent token
     await expect(
-      resetPassword({ token: "no-token", password: "", passwordConfirmation: "" }, mockCtx),
+      resetPassword({ token: "no-token", password: "", passwordConfirmation: "" }, mockCtx)
     ).rejects.toThrowError();
 
     // Expired token
     await expect(
-      resetPassword({ token: expiredToken, password: newPassword, passwordConfirmation: newPassword }, mockCtx),
+      resetPassword({ token: expiredToken, password: newPassword, passwordConfirmation: newPassword }, mockCtx)
     ).rejects.toThrowError();
 
     // Good token

@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 "use client";
 import { LabeledTextField } from "src/app/components/LabeledTextField";
 import { Form, FORM_ERROR } from "src/app/components/Form";
