@@ -8,6 +8,7 @@
     "start": "blitz start",
     "studio": "blitz prisma studio",
     "lint": "eslint",
+    "lint:inspect": "eslint --inspect-config",
     "test": "vitest run --passWithNoTests",
     "test:watch": "vitest",
     "prepare": "husky install"
