@@ -1,6 +1,7 @@
 // @ts-check
 
 import tseslint from "typescript-eslint";
+import { fixupPluginRules } from "@eslint/compat";
 
 import reactPlugin from "eslint-plugin-react";
 import hooksPlugin from "eslint-plugin-react-hooks";
@@ -17,8 +18,10 @@ export const nextConfig = tseslint.config(
   reactPlugin.configs.flat.recommended,
   {
     plugins: {
-      "react-hooks": hooksPlugin,
-      "@next/next": nextPlugin,
+      // @ts-ignore
+      "react-hooks": fixupPluginRules(hooksPlugin),
+      // @ts-ignore
+      "@next/next": fixupPluginRules(nextPlugin),
     },
     // @ts-ignore
     rules: {
@@ -33,9 +36,6 @@ export const nextConfig = tseslint.config(
       "react/react-in-jsx-scope": "off",
       "react/prop-types": "off",
       "react/jsx-no-target-blank": "off",
-
-      // エラーとなったため無効化で対応
-      "@next/next/no-duplicate-head": "off",
     },
   },
 );
