@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
+import { SecurePassword } from "@blitzjs/auth/secure-password";
 import { resolver } from "@blitzjs/rpc";
 import { AuthenticationError } from "blitz";
-import db from "db";
 import { Login } from "../validations";
-import { SecurePassword } from "@blitzjs/auth/secure-password";
+import db from "db";
 import { Role } from "types";
 
 export const authenticateUser = async (rawEmail: string, rawPassword: string) => {

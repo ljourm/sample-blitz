@@ -1,7 +1,7 @@
-import "./styles/globals.css";
-import { BlitzProvider } from "./blitz-client";
 import { Inter } from "next/font/google";
+import { BlitzProvider } from "./blitz-client";
 import { Providers } from "./providers";
+import "./styles/globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 

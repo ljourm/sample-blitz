@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 "use client";
-import { LabeledTextField } from "src/app/components/LabeledTextField";
-import { Form, FORM_ERROR } from "src/app/components/Form";
-import { ResetPassword } from "../validations";
-import resetPassword from "../mutations/resetPassword";
 import { useMutation } from "@blitzjs/rpc";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
+import resetPassword from "../mutations/resetPassword";
+import { ResetPassword } from "../validations";
+import { Form, FORM_ERROR } from "src/app/components/Form";
+import { LabeledTextField } from "src/app/components/LabeledTextField";
 
 export function ResetPasswordForm() {
   const searchParams = useSearchParams();

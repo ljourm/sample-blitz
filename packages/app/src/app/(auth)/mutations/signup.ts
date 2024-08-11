@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import db from "db";
 import { SecurePassword } from "@blitzjs/auth/secure-password";
+import db from "db";
 
 export default async function signup(input: { password: string; email: string }, ctx: any) {
   const blitzContext = ctx;

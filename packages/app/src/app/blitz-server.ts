@@ -1,9 +1,9 @@
-import { setupBlitzServer } from "@blitzjs/next";
 import { AuthServerPlugin, PrismaStorage, simpleRolesIsAuthorized } from "@blitzjs/auth";
-import db from "db";
-import { BlitzLogger } from "blitz";
+import { setupBlitzServer } from "@blitzjs/next";
 import { RpcServerPlugin } from "@blitzjs/rpc";
+import { BlitzLogger } from "blitz";
 import { authConfig } from "./blitz-auth-config";
+import db from "db";
 
 const { api, getBlitzContext, useAuthenticatedBlitzContext, invoke } = setupBlitzServer({
   plugins: [
