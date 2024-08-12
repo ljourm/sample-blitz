@@ -14,18 +14,31 @@ import nextPlugin from "@next/eslint-plugin-next";
 // see: https://zenn.dev/hsato_workman/articles/0f10b04a25963c
 
 export const nextConfig = tseslint.config(
-  // configs
-  reactPlugin.configs.flat.recommended,
   {
+    // react
+    ...reactPlugin.configs.flat.recommended,
+    settings: {
+      react: {
+        version: "detect",
+      },
+    },
+  },
+  {
+    // react-hooks
     plugins: {
       // @ts-ignore
       "react-hooks": fixupPluginRules(hooksPlugin),
+    },
+    // @ts-ignore
+    rules: hooksPlugin.configs.recommended.rules,
+  },
+  {
+    // next
+    plugins: {
       // @ts-ignore
       "@next/next": fixupPluginRules(nextPlugin),
     },
-    // @ts-ignore
     rules: {
-      ...hooksPlugin.configs.recommended.rules,
       ...nextPlugin.configs.recommended.rules,
       ...nextPlugin.configs["core-web-vitals"].rules,
 
